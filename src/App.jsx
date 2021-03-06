@@ -5,11 +5,20 @@ import MealBox from './Components/MealBox';
 
 class App extends Component {
   state = {
-    image: 'https://i.imgur.com/eTmWoAN.png',
-    name: 'pizza',
-    calories: '400',
-    quantity: '1'
+    meals: meals,
+    name: '',
+    calories: '',
+    image: '',
+    quantity: '',
+
+    key: Math.random().toString()
   };
+  // state = {
+  //   image: 'https://i.imgur.com/eTmWoAN.png',
+  //   name: 'pizza',
+  //   calories: '400',
+  //   quantity: '1'
+  // };
 
   // addMeal = () => {
   //   const singleMeal = meals.map((meal) => return
@@ -19,13 +28,20 @@ class App extends Component {
   render() {
     return (
       <div>
-        <p>Sample App</p>
-        <MealBox
-          name={this.state.name}
-          calories={this.state.calories}
-          image={this.state.image}
-          quantity={this.state.quantity}
-        />
+        <p>Iron Nutrition</p>
+        {meals.map((meal) => (
+          <MealBox
+            key={meal.key}
+            name={meal.name}
+            calories={meal.calories}
+            image={meal.image}
+            quantity={meal.quantity}
+            // name = {this.state.name}
+            // calories={this.state.calories}
+            // image={this.state.image}
+            // quantity={this.state.quantity}
+          />
+        ))}
       </div>
     );
   }
